@@ -1,0 +1,18 @@
+
+
+<h2>{{ registration.student.lastname | uppercase }} Details</h2>
+<div><span>id: </span>{{registration.student.studentid}}</div>
+
+<h2>{{ selectedCourse.classname }} Details</h2>
+<div><span>id: </span>{{selectedCourse.classid}}</div>
+<div>
+    <label>Class Name:    </label>  {{selectedCourse.classname}}
+</div>
+<div>
+  <label>Dept Name:    </label>  {{selectedCourse.department}}
+</div>
+
+<span>
+<button (click)="getPrevious()">Prev</button>
+<button (click)="getNext()">Next</button>
+</span>

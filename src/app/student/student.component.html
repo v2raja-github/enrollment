@@ -1,0 +1,31 @@
+<h2>{{ student.lastname | uppercase }} Details</h2>
+<div><span>id: </span>{{student.studentid}}</div>
+<div>
+    <label>First Name:
+      <input [(ngModel)]="student.firstname" placeholder="first">
+      </label>
+    </div><div>
+      <label>Last Name:
+      <input [(ngModel)]="student.lastname" placeholder="last">
+    </label>
+  </div><div>
+      <label>User Name:
+      <input [(ngModel)]="student.username" placeholder="">
+    </label>
+  </div><div>
+      <label>Gender:
+      <input [(ngModel)]="student.gender" placeholder="">
+    </label>
+  </div><div>
+      <label>Age:
+      <input [(ngModel)]="student.age" placeholder="">
+    </label>
+  </div><div>
+      <label>Institution:
+      <input [(ngModel)]="student.institution" placeholder="">
+    </label>
+  </div><div>
+      <label>Degree:
+      <input [(ngModel)]="student.degree" placeholder="">
+    </label>
+</div>

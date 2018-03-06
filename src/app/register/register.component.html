@@ -1,0 +1,64 @@
+
+
+
+<h2>{{ registration.student.lastname | uppercase }} Details</h2>
+<div><span>id: </span>{{registration.student.studentid}}</div>
+
+<form (submit)=onSubmit()>
+<div>
+    <label>First Name:
+      <input [(ngModel)]="registration.student.firstname"  name="firstName" placeholder="first" />
+    </label>
+</div>
+<div>
+    <label>Last Name:
+      <input [(ngModel)]="registration.student.lastname" name="lastName" placeholder="last">
+    </label>
+</div>
+<div>
+    <label>User Name:
+      <input [(ngModel)]="registration.student.username" name="UserName" placeholder="">
+    </label>
+</div>
+<div>
+    <label>Gender:
+      <input [(ngModel)]="registration.student.gender" name="gender" placeholder="">
+    </label>
+</div>
+<div>
+    <label>Age:
+      <input [(ngModel)]="registration.student.age" name="age" placeholder="">
+    </label>
+</div>
+<div>
+    <label>Institution:
+      <input [(ngModel)]="registration.student.institution" name="institution" placeholder="">
+    </label>
+</div>
+<div>
+    <label>Degree:
+      <input [(ngModel)]="registration.student.degree" name="degree" placeholder="">
+    </label>
+</div>
+
+
+<div>
+  <label>Class Name1:
+    <input [(ngModel)]="registration.course[0].classname" name="classname1" placeholder="">
+  </label>
+</div>
+
+<div>
+  <label>Class Name2:
+    <input [(ngModel)]="registration.course[1].classname" name="calssname2" placeholder="">
+  </label>
+</div>
+
+<div>
+  <label>Class Name3:
+    <input [(ngModel)]="registration.course[2].classname" name="classname3" placeholder="">
+  </label>
+</div>
+
+<input type="Submit" class="btn btn-primary" value="Submit"/>
+</form>
