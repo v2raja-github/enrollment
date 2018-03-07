@@ -13,6 +13,7 @@ import { CourseComponent } from './course/course.component';
 import { StudentComponent } from './student/student.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AppService } from './app.service';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 
 
@@ -21,7 +22,8 @@ import { AppService } from './app.service';
     AppComponent,
     RegisterComponent,
     CourseComponent,
-    StudentComponent
+    StudentComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,

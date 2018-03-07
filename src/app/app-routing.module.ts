@@ -4,11 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent }   from './register/register.component';
 import { StudentComponent } from './student/student.component';
 import { CourseComponent } from './course/course.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/register', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginFormComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'student/:101', component: StudentComponent },
+  { path: 'student/:userId', component: StudentComponent },
   { path: 'course', component: CourseComponent }
 ]
 

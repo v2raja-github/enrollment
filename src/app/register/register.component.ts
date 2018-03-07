@@ -50,5 +50,6 @@ export class RegisterComponent implements OnInit {
       this.currentIndex = this.currentIndex  + 1;
       this.selectedCourse = this.courses[this.currentIndex];
     }
+  }
 
 }
