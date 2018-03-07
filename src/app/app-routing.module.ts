@@ -5,13 +5,14 @@ import { RegisterComponent }   from './register/register.component';
 import { StudentComponent } from './student/student.component';
 import { CourseComponent } from './course/course.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { UserauthGuard } from './userauth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginFormComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'student/:userId', component: StudentComponent },
-  { path: 'course', component: CourseComponent }
+  { path: 'login',  component: LoginFormComponent },
+  { path: 'register', canActivate: [UserauthGuard], component: RegisterComponent },
+  { path: 'student/:userId', canActivate: [UserauthGuard], component: StudentComponent },
+  { path: 'course', canActivate: [UserauthGuard], component: CourseComponent }
 ]
 
 @NgModule({

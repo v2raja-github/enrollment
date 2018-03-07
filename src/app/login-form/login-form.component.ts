@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import {AppService} from '../app.service';
 import {UserLogin} from '../student';
 
+import { UserloginService } from '../userlogin.service';
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -12,7 +14,9 @@ export class LoginFormComponent implements OnInit {
 
   userLogin = new UserLogin("", "");
 
-  constructor(private appService: AppService, private router:Router) { }
+  constructor(private appService: AppService, 
+    private userloginService: UserloginService,
+    private router:Router) { }
 
   ngOnInit() {
   }
@@ -22,16 +26,24 @@ export class LoginFormComponent implements OnInit {
     var userid = e.target.elements[0].value;
     var pass = e.target.elements[1].value;
 
-    this.appService.getCredentials(userid).subscribe(res => this.userLogin = res);
+    //this.appService.getCredentials(userid).subscribe(res => this.userLogin = res);
+    this.userloginService.fetchUserLogin(userid).subscribe(data => {
+      this.userLogin = data;
+      console.log(this.userLogin);
 
-    if(userid == this.userLogin.user_id && pass == this.userLogin.password) {
-      this.router.navigate(['/register']);
-    }
-    else if(userid == 'admin' && pass == 'admin') {
-      this.router.navigate(['/register']);
-    }
-    else {
-      this.router.navigate(['/login']);
-    }
+      if(userid == this.userLogin.user_id && pass == this.userLogin.password) {
+        this.userloginService.setUserLoggedIn();
+        this.router.navigate(['/register']);
+      }
+      else if(userid == 'admin' && pass == 'admin') {
+        this.router.navigate(['/register']);
+      }
+      else {
+        this.router.navigate(['/login']);
+      }
+    })
+
+
   }
+
 }

@@ -9,6 +9,7 @@ import {Student} from '../Student';
 import {Course} from '../course';
 
 import {AppService} from '../app.service';
+import { UserloginService } from '../userlogin.service';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,9 @@ export class RegisterComponent implements OnInit {
 
 
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService,
+    private userloginService: UserloginService
+  ) { }
 
   ngOnInit() {
   }

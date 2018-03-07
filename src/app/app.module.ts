@@ -6,6 +6,8 @@ import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 
 import { catchError, map, tap } from 'rxjs/operators';
 
+import { HttpModule } from '@angular/http';
+
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
@@ -14,6 +16,8 @@ import { StudentComponent } from './student/student.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AppService } from './app.service';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { UserloginService } from './userlogin.service';
+import { UserauthGuard } from './userauth.guard';
 
 
 
@@ -29,9 +33,10 @@ import { LoginFormComponent } from './login-form/login-form.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [AppService],
+  providers: [AppService, UserloginService, UserauthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
