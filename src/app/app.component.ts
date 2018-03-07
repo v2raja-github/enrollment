@@ -7,6 +7,6 @@ import { Registration } from './registration';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular4 app';
+  title = 'Enrollment app';
 
 }

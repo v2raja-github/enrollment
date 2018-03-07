@@ -8,3 +8,10 @@ export class Student {
     institution: string;
     degree: string;
   }
+
+export class UserLogin {
+
+  constructor(
+    public user_id: string,
+    public password: string) {}
+}
