@@ -35,8 +35,6 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.appService.registerStudent(this.registration).subscribe(res => this.registration = res);
-
-
   }
 
 

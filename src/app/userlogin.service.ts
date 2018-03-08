@@ -14,7 +14,7 @@ export class UserloginService {
     this.isUserLoggedIn = false;
   }
 
-  public fetchUserLogin(userId: string) : Observable<UserLogin> {
+  public fetchUserLogin(userId: string) : Observable<UserLogin[]> {
     //let _url: string = "http://localhost:8080/user/" + userId;
     let _proxy_url: string = "api/user/" + userId;
     return this.http.get(_proxy_url).map(res => res.json());

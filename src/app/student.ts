@@ -1,17 +1,19 @@
 export class Student {
-    studentid: number;
-    firstname: string;
-    lastname: string;
-    username: string;
-    gender: string;
-    age: number;
-    institution: string;
-    degree: string;
+
+  constructor(
+    public student_id: number,
+    public firstname: string,
+    public lastname: string,
+    public username: string,
+    public gender: string,
+    public age: number,
+    public institution: string,
+    public degree: string) {}
   }
 
 export class UserLogin {
 
   constructor(
-    public user_id: string,
+    public user_id: number,
     public password: string) {}
 }

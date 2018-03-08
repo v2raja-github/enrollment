@@ -2,7 +2,7 @@
 
 
 <h2>{{ registration.student.lastname | uppercase }} Details</h2>
-<div><span>id: </span>{{registration.student.studentid}}</div>
+<div><span>id: </span>{{registration.student.student_id}}</div>
 
 <form (submit)=onSubmit()>
 <div>
@@ -44,19 +44,19 @@
 
 <div>
   <label>Class Name1:
-    <input [(ngModel)]="registration.course[0].classname" name="classname1" placeholder="">
+    <input [(ngModel)]="registration.courses[0].classname" name="classname1" placeholder="">
   </label>
 </div>
 
 <div>
   <label>Class Name2:
-    <input [(ngModel)]="registration.course[1].classname" name="calssname2" placeholder="">
+    <input [(ngModel)]="registration.courses[1].classname" name="calssname2" placeholder="">
   </label>
 </div>
 
 <div>
   <label>Class Name3:
-    <input [(ngModel)]="registration.course[2].classname" name="classname3" placeholder="">
+    <input [(ngModel)]="registration.courses[2].classname" name="classname3" placeholder="">
   </label>
 </div>
 

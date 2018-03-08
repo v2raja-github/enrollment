@@ -10,7 +10,7 @@ import {Student} from '../Student'
 export class StudentComponent implements OnInit {
 
   student: Student = {
-    studentid: 1001,
+    student_id: 1001,
     firstname: 'Raja',
     lastname: 'Andra',
     username: 'v2raja',

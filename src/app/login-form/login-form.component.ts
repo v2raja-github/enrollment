@@ -12,7 +12,7 @@ import { UserloginService } from '../userlogin.service';
 })
 export class LoginFormComponent implements OnInit {
 
-  userLogin = new UserLogin("", "");
+  userLogin = new UserLogin(0, "");
 
   constructor(private appService: AppService, 
     private userloginService: UserloginService,
@@ -28,20 +28,22 @@ export class LoginFormComponent implements OnInit {
 
     //this.appService.getCredentials(userid).subscribe(res => this.userLogin = res);
     this.userloginService.fetchUserLogin(userid).subscribe(data => {
-      this.userLogin = data;
+      if(data.length > 0) {
+        this.userLogin = data[0];
+      }
       console.log(this.userLogin);
-
       if(userid == this.userLogin.user_id && pass == this.userLogin.password) {
         this.userloginService.setUserLoggedIn();
         this.router.navigate(['/register']);
       }
-      else if(userid == 'admin' && pass == 'admin') {
+      else if(userid == '99999' && pass == 'admin') {
         this.router.navigate(['/register']);
       }
       else {
         this.router.navigate(['/login']);
       }
     })
+    
 
 
   }

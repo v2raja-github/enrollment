@@ -1,5 +1,6 @@
 export class Course {
-    classid: number;
-    classname: string;
-    department: string;
+    constructor (
+    public class_id: number,
+    public classname: string,
+    public department: string, ){}
 }
