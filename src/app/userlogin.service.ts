@@ -20,12 +20,29 @@ export class UserloginService {
     return this.http.get(_proxy_url).map(res => res.json());
   }
 
+  setUserLoggedOut() {
+    this.isUserLoggedIn = false;
+    this.userId = "";
+  }
+
   setUserLoggedIn() {
     this.isUserLoggedIn = true;
   }
 
   getUserLoggedIn() {
     return this.isUserLoggedIn;
+  }
+
+  getAdminUserLoggedIn() {
+    return this.isUserLoggedIn && this.userId == "99999"
+  }
+
+  setLoggedInUserId(userid: string) {
+    this.userId = userid;
+  }
+
+  getLoggedInUserId() {
+    return this.userId;
   }
 
 }

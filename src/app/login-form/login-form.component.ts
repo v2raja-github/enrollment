@@ -19,6 +19,11 @@ export class LoginFormComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit() {
+    this.logout();
+  }
+
+  logout() {
+    this.userloginService.setUserLoggedOut();
   }
 
   loginUser(e) {
@@ -34,6 +39,7 @@ export class LoginFormComponent implements OnInit {
       console.log(this.userLogin);
       if(userid == this.userLogin.user_id && pass == this.userLogin.password) {
         this.userloginService.setUserLoggedIn();
+        this.userloginService.setLoggedInUserId(userid);
         this.router.navigate(['/register']);
       }
       else if(userid == '99999' && pass == 'admin') {
@@ -43,9 +49,5 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     })
-    
-
-
   }
-
 }

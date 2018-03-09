@@ -1,64 +1,34 @@
+<h2>{{ registration.student.lastname | uppercase }} Registration Details</h2>
+<div><span>Student Id: </span>{{registration.student.student_id}}</div>
+<div><span>Student Name: </span>{{registration.student.firstname}}</div>
+<div><span>Student Degree: </span>{{registration.student.degree}}</div>
 
-
-
-<h2>{{ registration.student.lastname | uppercase }} Details</h2>
-<div><span>id: </span>{{registration.student.student_id}}</div>
+<div><span>Please Choose Courses to Register:</span></div>
 
 <form (submit)=onSubmit()>
-<div>
-    <label>First Name:
-      <input [(ngModel)]="registration.student.firstname"  name="firstName" placeholder="first" />
-    </label>
-</div>
-<div>
-    <label>Last Name:
-      <input [(ngModel)]="registration.student.lastname" name="lastName" placeholder="last">
-    </label>
-</div>
-<div>
-    <label>User Name:
-      <input [(ngModel)]="registration.student.username" name="UserName" placeholder="">
-    </label>
-</div>
-<div>
-    <label>Gender:
-      <input [(ngModel)]="registration.student.gender" name="gender" placeholder="">
-    </label>
-</div>
-<div>
-    <label>Age:
-      <input [(ngModel)]="registration.student.age" name="age" placeholder="">
-    </label>
-</div>
-<div>
-    <label>Institution:
-      <input [(ngModel)]="registration.student.institution" name="institution" placeholder="">
-    </label>
-</div>
-<div>
-    <label>Degree:
-      <input [(ngModel)]="registration.student.degree" name="degree" placeholder="">
-    </label>
-</div>
 
-
-<div>
-  <label>Class Name1:
-    <input [(ngModel)]="registration.courses[0].classname" name="classname1" placeholder="">
-  </label>
-</div>
-
-<div>
-  <label>Class Name2:
-    <input [(ngModel)]="registration.courses[1].classname" name="calssname2" placeholder="">
-  </label>
-</div>
-
-<div>
-  <label>Class Name3:
-    <input [(ngModel)]="registration.courses[2].classname" name="classname3" placeholder="">
-  </label>
-</div>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">select</th>
+        <th scope="col">Class Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">Registered</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses; let i = index">
+        <td>
+          <input type="checkbox" name="course">
+        </td>
+        <td>{{course.class_id}}</td>
+        <td>{{course.classname}}</td>
+        <td>{{course.department}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 <input type="Submit" class="btn btn-primary" value="Submit"/>
 </form>

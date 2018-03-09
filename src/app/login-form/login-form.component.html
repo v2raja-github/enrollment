@@ -1,13 +1,21 @@
-<form  (submit)="loginUser($event)">
+<form  (submit)="loginUser($event)" #loginForm="ngForm">
   <div class="form-group">
-    <label>User Id:</label>
-    <input id="userid" class="form-control" type="text">
+    <label for="userid">User Id:</label>
+    <input id="userid" name="userid" class="form-control" type="text" required minlength="5"
+    [(ngModel)]="userLogin.user_id" #userid="ngModel">
+    <div [hidden]="userid.valid || userid.pristine" class="alert alert-danger">
+      UserId is required
+    </div>
   </div>
   <div class="form-group">
-      <label>Pass Word:</label>
-      <input id="passwd" class="form-control" type="password">
+      <label for="password">Password:</label>
+      <input id="passwd" name="passwd" class="form-control" type="password"required minlength="5"
+      [(ngModel)]="userLogin.password" #passwd="ngModel">
+      <div [hidden]="passwd.valid || passwd.pristine" class="alert alert-danger">
+        Password is required
+      </div>
   </div>
   <div class="form-group">
-      <input class="form-control" type="submit" value="login">
+      <button class="btn btn-primary" [disabled]="!loginForm.form.valid" type="submit">login</button>
   </div>
 </form>

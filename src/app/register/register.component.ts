@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import {Registration} from '../registration';
-
 import { REGISTRATION } from '../mock-register';
-
 import {Student} from '../Student';
-
 import {Course} from '../course';
-
 import {AppService} from '../app.service';
 import { UserloginService } from '../userlogin.service';
 
@@ -24,17 +19,20 @@ export class RegisterComponent implements OnInit {
   currentIndex: number;
   courses: Course[];
 
-
-
   constructor(private appService: AppService,
     private userloginService: UserloginService
   ) { }
 
   ngOnInit() {
+    this.getRegisteredCourses(this.userloginService.getLoggedInUserId());
   }
 
   onSubmit() {
     this.appService.registerStudent(this.registration).subscribe(res => this.registration = res);
+  }
+
+  getRegisteredCourses(studentId: string) {
+    this.appService.getStudentRegistration(studentId).subscribe(res => this.courses = res);
   }
 
 

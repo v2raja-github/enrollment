@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Registration } from './registration';
 import { UserLogin } from './student';
+import { Course } from './course';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -22,10 +23,10 @@ export class AppService {
     return this.http.post<Registration>(_url, Registration, httpOptions);
   }
 
-  getCredentials(userId: string){
-    //let _url: string = "http://localhost:8080/user/" + userId;
-    let _proxy_url: string = "api/user/" + userId;
-    return this.http.get<UserLogin>(_proxy_url, httpOptions);
+  getStudentRegistration(studentId: string){
+    //let _url: string = "http://localhost:8080/registration/" + studentId;
+    let _proxy_url: string = "api/registration/" + studentId;
+    return this.http.get<Course[]>(_proxy_url, httpOptions);
   }
 
 }
