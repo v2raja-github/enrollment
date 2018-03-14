@@ -14,11 +14,11 @@ import { RegisterComponent } from './register/register.component';
 import { CourseComponent } from './course/course.component';
 import { StudentComponent } from './student/student.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { AppService } from './app.service';
+import { AppService } from './_service/app.service';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { UserloginService } from './userlogin.service';
-import { UserauthGuard } from './userauth.guard';
-
+import { UserloginService } from './_service/userlogin.service';
+import { UserauthGuard } from './_guards/userauth.guard';
+import { AdminGuard } from './_guards/admin.guard';
 
 
 @NgModule({
@@ -36,7 +36,7 @@ import { UserauthGuard } from './userauth.guard';
     HttpClientModule,
     HttpModule
   ],
-  providers: [AppService, UserloginService, UserauthGuard],
+  providers: [AppService, UserloginService, UserauthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

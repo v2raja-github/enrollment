@@ -1,7 +1,7 @@
-import { Student } from './student';
-import { Course } from './course';
+import { Student } from '../_domain/student';
+import { Course } from '../_domain/course';
 
-import { Registration } from './registration';
+import { Registration } from '../_domain/registration';
 
 const STUDENT: Student = 
     { student_id: 10001, firstname: 'Doug', lastname: 'Nice', username: 'Doug1', gender: 'male', age: 35, institution: 'Columbus University', degree: 'Robotics' };

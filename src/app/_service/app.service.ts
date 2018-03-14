@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { catchError, map, tap } from 'rxjs/operators';
-import { Registration } from './registration';
-import { UserLogin } from './student';
-import { Course } from './course';
+import { Registration } from '../_domain/registration';
+import { UserLogin } from '../_domain/student';
+import { Course } from '../_domain/course';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

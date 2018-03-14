@@ -1,4 +1,4 @@
-import { Course } from './course';
+import { Course } from '../_domain/course';
 
 export const COURSES: Course[] = [
   { class_id: 101, classname: 'Intro to Robotics', department: 'Robotics'},

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Registration} from '../registration';
-import { REGISTRATION } from '../mock-register';
-import {Student} from '../Student';
-import {Course} from '../course';
-import {AppService} from '../app.service';
-import { UserloginService } from '../userlogin.service';
+import {Registration} from '../_domain/registration';
+import { REGISTRATION } from '../_mock/mock-register';
+import {Student} from '../_domain/Student';
+import {Course} from '../_domain/course';
+import {AppService} from '../_service/app.service';
+import { UserloginService } from '../_service/userlogin.service';
 
 @Component({
   selector: 'app-register',

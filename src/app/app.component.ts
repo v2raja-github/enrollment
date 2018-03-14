@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Registration } from './registration';
+import { Registration } from './_domain/registration';
 
 @Component({
   selector: 'app-root',

@@ -1,4 +1,4 @@
-import { Student } from './student';
+import { Student } from '../_domain/student';
 
 export const STUDENTS: Student[] = [
   { student_id: 10001, firstname: 'Doug', lastname: 'Nice', username: 'Doug1', gender: 'male', age: 35, institution: 'Columbus University', degree: 'Robotics' },
