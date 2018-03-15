@@ -1,7 +1,6 @@
-<h2>{{ registration.student.lastname | uppercase }} Registration Details</h2>
-<div><span>Student Id: </span>{{registration.student.student_id}}</div>
-<div><span>Student Name: </span>{{registration.student.firstname}}</div>
-<div><span>Student Degree: </span>{{registration.student.degree}}</div>
+<div><span>Student Id: </span>{{loggedInStudent.student_id}}</div>
+<div><span>Student Name: </span>{{loggedInStudent.lastname}}, {{loggedInStudent.firstname}}</div>
+<div><span>Student Degree: </span>{{loggedInStudent.degree}}</div>
 
 <div><span>Please Choose Courses to Register:</span></div>
 
@@ -18,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let course of courses; let i = index">
+      <tr *ngFor="let course of allCourses; let i = index">
         <td>
           <input type="checkbox" name="course">
         </td>

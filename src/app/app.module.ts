@@ -19,6 +19,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { UserloginService } from './_service/userlogin.service';
 import { UserauthGuard } from './_guards/userauth.guard';
 import { AdminGuard } from './_guards/admin.guard';
+import { EnrolledComponent } from './enrolled/enrolled.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AdminGuard } from './_guards/admin.guard';
     RegisterComponent,
     CourseComponent,
     StudentComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    EnrolledComponent
   ],
   imports: [
     BrowserModule,

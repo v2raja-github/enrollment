@@ -1,0 +1,24 @@
+<div><span>Student Id: </span>{{loggedInStudent.student_id}}</div>
+<div><span>Student Name: </span>{{loggedInStudent.lastname}}, {{loggedInStudent.firstname}}</div>
+<div><span>Student Degree: </span>{{loggedInStudent.degree}}</div>
+
+<div><span>Courses Registered:</span></div>
+
+<table class="table table-bordered table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">ClassId</th>
+      <th scope="col">ClassName</th>
+      <th scope="col">Department</th>
+      <th scope="col">Registered</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of registeredCourses; let i = index">
+      <td>{{course.class_id}}</td>
+      <td>{{course.classname}}</td>
+      <td>{{course.department}}</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

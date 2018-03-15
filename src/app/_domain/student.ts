@@ -14,6 +14,6 @@ export class Student {
 export class UserLogin {
 
   constructor(
-    public user_id: number,
+    public user_id: string,
     public password: string) {}
 }

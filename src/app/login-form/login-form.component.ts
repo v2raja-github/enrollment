@@ -12,7 +12,7 @@ import { UserloginService } from '../_service/userlogin.service';
 })
 export class LoginFormComponent implements OnInit {
 
-  userLogin = new UserLogin(0, "");
+  userLogin = new UserLogin("", "");
 
   constructor(private appService: AppService, 
     private userloginService: UserloginService,
@@ -40,7 +40,7 @@ export class LoginFormComponent implements OnInit {
       if(userid == this.userLogin.user_id && pass == this.userLogin.password) {
         this.userloginService.setUserLoggedIn();
         this.userloginService.setLoggedInUserId(userid);
-        this.router.navigate(['/register']);
+        this.router.navigate(['/enrolled']);
       }
       else if(userid == '99999' && pass == 'admin') {
         this.router.navigate(['/register']);

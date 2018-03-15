@@ -1,21 +1,23 @@
-<form  (submit)="loginUser($event)" #loginForm="ngForm">
-  <div class="form-group">
-    <label for="userid">User Id:</label>
-    <input id="userid" name="userid" class="form-control" type="text" required minlength="5"
-    [(ngModel)]="userLogin.user_id" #userid="ngModel">
-    <div [hidden]="userid.valid || userid.pristine" class="alert alert-danger">
-      UserId is required
-    </div>
-  </div>
-  <div class="form-group">
-      <label for="password">Password:</label>
-      <input id="passwd" name="passwd" class="form-control" type="password"required minlength="5"
-      [(ngModel)]="userLogin.password" #passwd="ngModel">
-      <div [hidden]="passwd.valid || passwd.pristine" class="alert alert-danger">
-        Password is required
+<div class="container">
+  <form (submit)="loginUser($event)" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="userid">User Id:</label>
+      <input id="userid" name="userid" class="form-control" type="text"  required minlength="5"
+      [(ngModel)]="userLogin.user_id" #userid="ngModel" placeholder="Enter UserId">
+      <div [hidden]="userid.valid || userid.pristine" class="alert alert-danger">
+        UserId is required
       </div>
-  </div>
-  <div class="form-group">
-      <button class="btn btn-primary" [disabled]="!loginForm.form.valid" type="submit">login</button>
-  </div>
-</form>
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input id="passwd" name="passwd" class="form-control" type="password"required minlength="5"
+        [(ngModel)]="userLogin.password" #passwd="ngModel" placeholder="Enter Password">
+        <div [hidden]="passwd.valid || passwd.pristine" class="alert alert-danger">
+          Password is required
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" [disabled]="!loginForm.form.valid" type="submit">login</button>
+    </div>
+  </form>
+</div>

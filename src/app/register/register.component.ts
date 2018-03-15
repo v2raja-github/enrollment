@@ -3,6 +3,7 @@ import {Registration} from '../_domain/registration';
 import { REGISTRATION } from '../_mock/mock-register';
 import {Student} from '../_domain/Student';
 import {Course} from '../_domain/course';
+import {Register} from '../_domain/register';
 import {AppService} from '../_service/app.service';
 import { UserloginService } from '../_service/userlogin.service';
 
@@ -15,40 +16,60 @@ export class RegisterComponent implements OnInit {
 
   registration = REGISTRATION;
 
+  register = new Register(0, 0);
+
+  msg: any;
+
   selectedCourse: Course;
   currentIndex: number;
-  courses: Course[];
+  allCourses: Course[];
+  registeredCourses: Course[];
+
+  students: Student[];
+  loggedInStudent: Student;
 
   constructor(private appService: AppService,
     private userloginService: UserloginService
   ) { }
 
   ngOnInit() {
-    this.getRegisteredCourses(this.userloginService.getLoggedInUserId());
+    //this.getEnrolledCourses(this.userloginService.getLoggedInUserId());
+    this.getCourses();
+    this.getStudent(this.userloginService.getLoggedInUserId());
   }
 
   onSubmit() {
-    this.appService.registerStudent(this.registration).subscribe(res => this.registration = res);
+    this.appService.registerStudent(this.register).subscribe(res => this.msg = res);
   }
 
-  getRegisteredCourses(studentId: string) {
-    this.appService.getStudentRegistration(studentId).subscribe(res => this.courses = res);
+  getEnrolledCourses(studentId: string) {
+    this.appService.getStudentEnrolledCourses(studentId).subscribe(res => this.registeredCourses = res);
   }
 
+  getStudent(studentId: string) {
+    this.appService.getStudent(studentId).subscribe(res => { this.students = res
+      if (this.students != null && this.students.length > 0) {
+          this.loggedInStudent = this.students[0];
+      }
+    });
+  }
+
+  getCourses() {
+    this.appService.getAllCourses().subscribe(res => this.allCourses = res);
+  }
 
   getPrevious() {
     if(this.currentIndex > 0) {
       this.currentIndex = this.currentIndex -1;
-      this.selectedCourse = this.courses[this.currentIndex];
+      this.selectedCourse = this.allCourses[this.currentIndex];
       
     }
   }
 
   getNext(){
-    if(this.currentIndex < this.courses.length - 1) {
+    if(this.currentIndex < this.allCourses.length - 1) {
       this.currentIndex = this.currentIndex  + 1;
-      this.selectedCourse = this.courses[this.currentIndex];
+      this.selectedCourse = this.allCourses[this.currentIndex];
     }
   }
-
 }
