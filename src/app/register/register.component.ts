@@ -19,6 +19,12 @@ export class RegisterComponent implements OnInit {
   register = new Register(0, 0);
 
   msg: any;
+  successAlert: boolean;
+  successAlertMsg: String;
+
+  failureAlert: boolean;
+  failureAlertMsg: String;
+
 
   selectedCourse: Course;
   currentIndex: number;
@@ -43,9 +49,21 @@ export class RegisterComponent implements OnInit {
     this.register.student_id = this.loggedInStudent.student_id;
     this.register.class_id = this.getSelectedCourse().class_id;
     this.appService.registerStudent(this.register).subscribe(res => {
-      this.msg = res;
-      console.log(this.msg);
-    });
+      if(res.affectedRows === 1 && res.message === "") {
+        this.successAlert = true;
+        this.successAlertMsg = "Course Registered Successfully";
+      }
+      else if(res.errno > 0) {
+        this.failureAlert = true;
+        this.failureAlertMsg = "Course Registration Failed:" 
+            + "sqlMessage: " + res.sqlMessage
+            + "errno: "  + res.errno
+            + "sqlState: " + res.sqlState;
+      } else {
+        this.failureAlert = true;
+        this.failureAlertMsg = "Course Registration Failed: Application Error!";
+      }
+    })
   }
 
   getEnrolledCourses(studentId: string) {

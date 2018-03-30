@@ -14,6 +14,9 @@ export class LoginFormComponent implements OnInit {
 
   userLogin = new UserLogin("", "");
 
+  loginFailedAlert: boolean;
+  loginFailedAlertMsg: String;
+
   constructor(private appService: AppService, 
     private userloginService: UserloginService,
     private router:Router) { }
@@ -38,6 +41,7 @@ export class LoginFormComponent implements OnInit {
       }
       console.log(this.userLogin);
       if(userid == this.userLogin.user_id && pass == this.userLogin.password) {
+        localStorage.setItem("loggedInUser", userid);
         this.userloginService.setUserLoggedIn();
         this.userloginService.setLoggedInUserId(userid);
         this.router.navigate(['/enrolled/:studentId']);
@@ -46,8 +50,15 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate(['/register/:studentId']);
       }
       else {
+        this.loginFailedAlert = true;
+        this.loginFailedAlertMsg = "Incorrect UserId or Password, Please try Again!";
         this.router.navigate(['/login']);
       }
+    }, 
+    error => {
+      console.log(error);
+      this.loginFailedAlert = true;
+      this.loginFailedAlertMsg = "Cannot login, Application Error!";
     })
   }
 }

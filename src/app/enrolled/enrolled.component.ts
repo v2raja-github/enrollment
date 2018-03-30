@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Registration} from '../_domain/registration';
 import { REGISTRATION } from '../_mock/mock-register';
-import {Student} from '../_domain/Student';
+import {Student} from '../_domain/student';
 import {Course} from '../_domain/course';
 import {Register} from '../_domain/register';
 import {AppService} from '../_service/app.service';
@@ -22,7 +22,7 @@ export class EnrolledComponent implements OnInit {
     registeredCourses: Course[];
   
     students: Student[];
-    loggedInStudent: Student;
+    loggedInStudent: Student = new Student(0, "", "", "", "", 0, "", "");
   
     constructor(private appService: AppService,
       private userloginService: UserloginService
