@@ -12,8 +12,8 @@ import { AdminGuard } from './_guards/admin.guard';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login',  component: LoginFormComponent },
-  { path: 'enrolled', canActivate: [UserauthGuard], component: EnrolledComponent },
-  { path: 'register', canActivate: [UserauthGuard], component: RegisterComponent },
+  { path: 'enrolled/:studentId', canActivate: [UserauthGuard], component: EnrolledComponent },
+  { path: 'register/:studentId', canActivate: [UserauthGuard], component: RegisterComponent },
   { path: 'student/:userId', canActivate: [AdminGuard], component: StudentComponent },
   { path: 'course/:classId', canActivate: [AdminGuard], component: CourseComponent }
 ]

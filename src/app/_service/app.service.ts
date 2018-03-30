@@ -20,9 +20,9 @@ export class AppService {
 
   registerStudent(register: Register){
     console.log(register);
-    let _url: string = "http://localhost:8080/register";
+    //let _url: string = "http://localhost:8080/register" + studentId;
     let _proxy_url: string = "api/register/" + register.student_id;
-    return this.http.post<any>(_url, register, httpOptions);
+    return this.http.post<any>(_proxy_url, register, httpOptions);
   }
 
   getStudentEnrolledCourses(studentId: string){

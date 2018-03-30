@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
 
   selectedCourse: Course;
   currentIndex: number;
+  selectedRowIndex: number;
   allCourses: Course[];
   registeredCourses: Course[];
 
@@ -39,7 +40,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.appService.registerStudent(this.register).subscribe(res => this.msg = res);
+    this.register.student_id = this.loggedInStudent.student_id;
+    this.register.class_id = this.getSelectedCourse().class_id;
+    this.appService.registerStudent(this.register).subscribe(res => {
+      this.msg = res;
+      console.log(this.msg);
+    });
   }
 
   getEnrolledCourses(studentId: string) {
@@ -56,6 +62,22 @@ export class RegisterComponent implements OnInit {
 
   getCourses() {
     this.appService.getAllCourses().subscribe(res => this.allCourses = res);
+  }
+
+  setSelectedCourse(selectedCourse: Course) {
+    this.selectedCourse = selectedCourse;
+  }
+
+  getSelectedCourse() {
+    return this.selectedCourse;
+  }
+
+  setSelectedRowIndex(rowIndex: number) {
+    this.selectedRowIndex = rowIndex;
+  }
+
+  getSelectedRowIndex() {
+    return this.selectedRowIndex;
   }
 
   getPrevious() {

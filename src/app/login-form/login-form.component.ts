@@ -40,10 +40,10 @@ export class LoginFormComponent implements OnInit {
       if(userid == this.userLogin.user_id && pass == this.userLogin.password) {
         this.userloginService.setUserLoggedIn();
         this.userloginService.setLoggedInUserId(userid);
-        this.router.navigate(['/enrolled']);
+        this.router.navigate(['/enrolled/:studentId']);
       }
       else if(userid == '99999' && pass == 'admin') {
-        this.router.navigate(['/register']);
+        this.router.navigate(['/register/:studentId']);
       }
       else {
         this.router.navigate(['/login']);
